@@ -25,6 +25,28 @@
 //     return reversed.join('')
 // }
 
+//or using for . . . of
+// const reverseIt = string => {
+//     let result = "";
+//     for (let character of string) result = character + result;
+//     return result;
+// }
+
+//or using reduce
+
+//const reverseIt = string =>
+// string.split("").reduce((result, character) => character + result);
+
+
 // console.log(reverseIt('babble'))
 
-// 
+// Count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.What if the string is empty? Then the result should be empty object literal, {}.
+
+const countChars = (s) => {
+    let chars = {}
+    for(let el of s) {
+        chars.hasOwnProperty(el) ? chars[el] ++ : chars[el] = 1
+    }
+    return chars
+}
+console.log(countChars('babble'))

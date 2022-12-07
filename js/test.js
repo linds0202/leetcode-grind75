@@ -42,11 +42,35 @@
 
 // Count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.What if the string is empty? Then the result should be empty object literal, {}.
 
-const countChars = (s) => {
-    let chars = {}
-    for(let el of s) {
-        chars.hasOwnProperty(el) ? chars[el] ++ : chars[el] = 1
+// const countChars = (s) => {
+//     let chars = {}
+//     for(let el of s) {
+//         chars.hasOwnProperty(el) ? chars[el] ++ : chars[el] = 1
+//     }
+//     return chars
+// }
+// console.log(countChars('babble'))
+
+//DAY 3
+const returnMost = (s) => {
+    let hash = {}
+    let max = 0
+
+    for (const char of s) {
+        if (hash.hasOwnProperty(char)) {
+            hash[char]++
+            if(hash[char] > max) {
+                max = hash[char]
+            }
+        } else {
+            hash[char] = 1
+            if(hash[char] > max) {
+                max = hash[char]
+            }
+        }
     }
-    return chars
-}
-console.log(countChars('babble'))
+
+    return max
+}   
+
+console.log(returnMost('ahhdskjsjjjj'))
